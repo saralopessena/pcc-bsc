@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load myfilters %}
+
+{% block content %}
+
+<style>
+     .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+
+    .btn {
+        margin-top: 15px;
+    }
+
+</style>
+
+<div class="container">
+
+    <div class="row ">
+        <div class="col-md">
+        </div>
+        <div class="col-md-4">
+            <div class="container-form-content">
+                <h3 class="h3 text-center">
+                    Criar quiz
+                </h3>
+                <form method="POST">
+                    {% csrf_token %}
+    
+                    <div class="col-auto">
+                        <label class="form-label">Título</label>
+                        {{ form.title | addclass:'form-control' }}
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Descrição</label>
+                        {{ form.description | addclass:'form-control' }}
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="submit">Próximo</button>
+                    </div>
+                </form>
+                {% if error %}
+                <div class="card bg-danger">
+                    <div class="card-body text-white">
+                      <p>
+                        Os seguintes erros foram apresentados: 
+                        <ul>
+                            <li>
+                                {{error}}
+                            </li>
+                        </ul>
+                    </p> 
+                    </div>
+                </div>
+                {% endif %}
+    
+            </div>
+        </div>
+    
+        <div class="col-md">
+        </div>
+    </div>
+</div>
+{% endblock %}

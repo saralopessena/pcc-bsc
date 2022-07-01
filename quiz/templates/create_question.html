@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load myfilters %}
+
+{% block content %}
+
+<style>
+    .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+        margin-bottom: 30px;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+
+    div.col-auto, .btn {
+        margin: 15px 0px
+    }
+</style>
+
+<div class="container">
+    <div class="row ">
+
+        <div class="col-md">
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="container-form-content">
+                <h3 class="h3 text-center">
+                    Adicionar questão
+                </h3>
+                <small class="col text-dark text-center">
+                    <p>Adicione uma questão para o quiz <b>{{quiz.title}}</b>:</p>
+                </small>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="col-auto">
+                        <label class="form-label">Título da questão</label>
+                        {{ question_form.question | addclass:'form-control' }}
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Alternativa 1</label>
+                        <input type="text" name="answer1" class="form-control" required>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Alternativa 2</label>
+                        <input type="text" name="answer2" class="form-control" required>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Alternativa 3</label>
+                        <input type="text" name="answer3" class="form-control" required>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Alternativa 4</label>
+                        <input type="text" name="answer4" class="form-control" required>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Alternativa 5</label>
+                        <input type="text" name="answer5" class="form-control" required>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label">Digite o número da alternativa correta:</label>
+                        <input type="number" name="answer_correct" class="form-control" min="1" max="5" required >
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="submit">Adicionar questão</button>
+                        <a class="text-center" href="{% url 'posts:detail-posts' quiz.post.id %}">
+                            Finalizar adição de questões
+                        </a>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md">
+        </div>
+    </div>
+</div>
+{% endblock %}

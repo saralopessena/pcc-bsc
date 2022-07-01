@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    #app {
+        margin-top: 30px;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .form-control b {
+        font-size: 20px;
+    }
+
+    div.bottom {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    div.bottom div {
+        margin-left: 20px;
+    }
+
+    div.top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+</style>
+
+<div id="app" class="container">
+    <div class="top">
+        <div>
+            <h1 class="h1">
+                [[ quiz.data[0]["quiz"] ]]
+            </h1>
+            <div class="form-text">{{quiz.description}}</div>
+        </div>
+        {% if request.user.is_staff %}
+        <a href="{% url 'quiz:create-question' quiz_id=quiz.uid %}">
+            <button class="btn btn-sucess btn-sm">
+                <span class="material-icons">
+                    add
+                </span>
+                Adicionar
+            </button>
+        </a>
+        {% endif %}
+    </div>
+
+    {% if qtd == '0' %}
+    <h3 class="text-center">Esse quiz não tem alternativas</h3>
+
+
+    {% else %}
+    <div v-for="question in quiz.data" class="form-control">
+        <b>
+            [[ question['question'] ]]
+        </b>
+        <div class="form-check" v-for="ans in question.answer">
+
+            <input class="form-check-input" type="radio" :name="question['question']" :value="ans.is_correct">
+            <label class="form-check-label" :id="question['id']">
+                [[ans.answer]]
+
+            </label>
+        </div>
+        <div class="bottom">
+
+        </div>
+
+        <button :id="question['id']" type="submit" class="btn btn-dark" :class="question['id']+'-button'"
+            onclick="btn_listener(this.id)">Enviar
+        </button>
+
+        <div :class="question['id'] + '-result'"></div>
+
+
+    </div>
+    <div class="card bg-success text-white">
+        <div class="card-body">
+            <span id="acertos" class="">
+                Parabêns, você acertou 0 de
+            </span>
+            <span>
+
+                {{qtd}}
+            </span>
+        </div>
+
+    </div>
+    <br>
+</div>
+{% endif %}
+
+<script type="module">
+
+    const data = await fetch('get-uuid/').then(async (res) => {
+        return await res.text()
+    })
+    const resp = await fetch(`api/${data}/`).then(async (res) => {
+        return await res.json()
+    })
+
+    var app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        async data() {
+            return {
+                'quiz': ''
+            }
+        },
+        async created() {
+            this.quiz = resp
+            let questions = resp.data[0].answer
+            sessionStorage.setItem('data_api', JSON.stringify(questions))
+        }
+    })
+
+
+</script>
+<script>
+
+    sessionStorage.setItem('acertos', 0)
+    function btn_listener(id) {
+        const data = JSON.parse(sessionStorage.getItem('data_api'))
+
+        //---------
+        let class_div_result = id.concat('-result')
+        let class_button = id.concat('-button')
+
+        let button = document.getElementsByClassName(class_button).item(function (e) {
+            return e
+        })
+        button.disabled = true
+
+
+        let result_tag = document.getElementsByClassName(class_div_result).item(function (e) {
+            return e
+        })
+        //---------
+
+        let list_alternatives_raw = document.querySelectorAll('.form-check-input')
+        let list_label = document.querySelectorAll('.form-check-label')
+        let list_alternatives = Array.from(list_alternatives_raw)
+
+
+
+
+        for (let i = 0; i < list_label.length; i++) {
+
+            if (id == list_label[i].id) {
+
+                list_label[i].style.color = '#000000'
+
+                //A função não mostrará a resposta correta se este if for retirado
+                if (list_alternatives[i].value == "true") {
+                    list_label[i].style.color = '#00f73e'
+                }
+
+                if (list_alternatives[i].checked == true && list_alternatives[i].value == "true") {
+                    list_label[i].style.color = '#00f73e'
+                    result_tag.innerText = "Você acertou!!"
+                    result_tag.style.color = '#00f73e'
+                    /**/
+                    sessionStorage.setItem('acertos', parseInt(sessionStorage.getItem('acertos')) + 1)
+                    document.getElementById('acertos').innerText = "Você acertou " + sessionStorage.getItem('acertos') + " de "
+
+                } else if (list_alternatives[i].checked == true && list_alternatives[i].value == "false") {
+                    list_label[i].style.color = '#db161e'
+                    result_tag.innerText = "Você errou!!"
+                    result_tag.style.color = '#db161e'
+                    document.getElementById('acertos').innerText = "Você acertou " + sessionStorage.getItem('acertos') + " de "
+
+                }
+            }
+        }
+
+
+    }
+
+</script>
+{% endblock content %}
