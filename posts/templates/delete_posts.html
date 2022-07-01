@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load myfilters %}
+
+{% block content %}
+
+<style>
+    .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+        margin-bottom: 30px;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+
+    div.col-auto, .btn {
+        margin: 15px 0px
+    }
+</style>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md">
+        </div>
+        <div class="col-md-6">
+            <div class="container-form-content text-center">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <h1>
+                        Deletar Publicação
+                    </h1>
+                    <div>
+                        <label for="">Tem certeza?</label>
+                        <button class="btn btn-danger">Deletar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md">
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

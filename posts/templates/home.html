@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <br>
+  <h1 class="text-center">
+    Seja muito bem-vindo(a), {{user}} !
+  </h1>
+  <hr />
+  <div class="flex" style="display:flex; flex-direction: row;">
+
+    {% for p in posts %}
+
+    <div class="card m-2" style="width: 18rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{p.title}}</h5>
+        <p class="card-text">{{ p.description }}</p>
+        <a href="{% url 'posts:detail-posts' posts_id=p.id %}" class="card-link">Leia mais</a>
+      </div>
+    
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock content %}

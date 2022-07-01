@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complement %}
+<link rel="stylesheet" href="{% static 'css/detail_posts.css'%}" media="screen">
+{% endblock complement %}
+
+{% block content %}
+
+<div class="container">
+    <div class="thumb" style='background-image: url({{post.link_img}});background-repeat: no-repeat; background-size: cover;'>
+        <h1 class="text-center" style="margin-top: 20%; color: fff">{{ post.title }}</h1>
+    </div>
+<!--
+    <div class="title">
+        <div>
+            {% if user.is_staff %}
+            <a class="options" href="{% url 'posts:edit-posts' posts_id=post.id%}">
+                <button class="btn btn-edit btn-sm">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+
+-->
+    <p id="description">{{post.description | safe}}</p>
+    <span>{{post.user.first_name}} {{post.user.last_name}} - {{ post.create_at }}</span>
+    <hr />
+    <h3>Comentários</h3>
+    {% for comment in comments %}
+    <div class="card">
+        <div class="card-body">
+            <span>
+                {{comment.text}}
+            </span>
+            <hr>
+            <p>Postado em: {{ comment.create_at }}</p>
+            {% if user.id == comment.user.id %}
+            <a class="options" href="{% url 'posts:edit-comments' comments_id=comment.pk %}">
+                <button class="btn btn-edit btn-sm">
+
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </button>
+            </a>
+
+            <a class="options" href="{% url 'posts:delete-comments' comments_id=comment.pk %}">
+                <button class="btn btn-danger btn-sm">
+
+                    <span class="material-icons">
+                        delete_forever
+
+                    </span>
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <hr />
+    {% endfor %}
+    {% include 'form_comments.html' %}
+    <br>
+    <hr>
+    {% if quiz != None %}
+    <div class="card text-center card-quiz">
+        <div class="card-body">
+            <h5 class="card-title">Quiz!</h5>
+            <p class="card-text">Teste seus conhecimentos sobre o que acabou de ler!</p>
+            <a href="quiz/" class="btn btn-info">Topo! Vamos lá.</a>
+        </div>
+    </div>
+    {% else %}
+    {% if user.is_staff %}
+    <div class="card text-center card-quiz">
+        <div class="card-body">
+            <h5 class="card-title">Crie um quiz para esta publicação!</h5>
+            <p class="card-text">Clique no botão abaixo </p>
+            <a href="quiz/create/" class="btn btn-info">Criar</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+</div>
+{% endblock content %}

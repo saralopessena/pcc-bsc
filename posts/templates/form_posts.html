@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load myfilters %}
+
+{% block content %}
+
+<style>
+    .btn {
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container">
+    <br>
+    <h1>Formulário de criação</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Título</label>
+            {{form.title | addclass:'form-control'}}
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Conteúdo da publicação</label>
+            {{ form.description | addclass:'form-control' }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Link da Imagem</label>
+            {{ form.link_img | addclass:'form-control' }}
+        </div>
+        <button class="btn btn-primary">Enviar</button>
+    </div>
+</form>
+{% endblock content %}
