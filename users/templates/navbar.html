@@ -1,0 +1,76 @@
+{% load static %}
+
+<style>
+    .navbar {
+        background: #1e1d1d !important;
+    }
+
+    .navbar-brand img {
+        width: 60px;
+    }
+
+    span a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    span a:hover {
+        color: #fff;
+        opacity: 0.8;
+    }
+    .nav-item a{
+        color: #fff
+    }
+    #navbarNav{
+        justify-content: end;
+
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'images/logo.svg' %}">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav text-white">
+            
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="/">Homepage</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="/#INDICA">Indicações</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="/#about">Sobre</a>
+                </li>
+                <li class="nav-item p-3">
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_admin %}
+
+                    {% else %}
+                        <a class="nav-link" href="{% url 'users:profile-users' %}">Perfil</a>
+
+                    {% endif %}
+                   
+                    {% else %}
+                    <a class="nav-link" href="{% url 'users:login-users' %}">Login</a>
+                    {% endif %}
+
+                </li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="{% url 'users:logout-users' %}">Logout</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="{% url 'posts:create-posts' %}">Adicionar Post</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

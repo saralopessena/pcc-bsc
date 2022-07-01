@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<style>
+    .container-form-content {
+       background-color: #fff;
+       padding: 5%;
+       border-radius: 5px;
+       margin-top: 4rem;
+   }
+
+   .field {
+       margin-top: 5px;
+   }
+
+</style>
+<div class="row ">
+
+   <div class="col-md">
+   </div>
+
+
+   <div class="col-md-4">
+       <div class="container-form-content text-center">
+           <small class="">Essa ação não é reversível</small>
+           <h4 class="h4 text-center">
+               Deseja realmente deletar sua conta?
+           </h4>
+           <form method="POST">
+               {% csrf_token %}
+               <blockquote class="blockquote">
+                O usuário a ser apagado: {{request.user.username}}
+              </blockquote>
+              
+                   
+                   <div class="d-grid gap-2 col-6 mx-auto">
+                       <button class="btn btn-danger" type="submit">Deletar</button>
+                    </div>
+               
+           </form>
+       </div>
+   </div>
+
+   <div class="col-md">
+   </div>
+</div>
+    {% endblock content  %}

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behind the social curtains</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="shortcut icon" href="{% static 'images/logo.svg' %}" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% block complement %} {% endblock complement %}
+  <link rel="stylesheet" href="{% static 'css/nicepage.css'%}" media="screen">
+
+  <style>
+    body {
+      background-color: #fef1f0 !important;
+      font-family: 'Montserrat', sans-serif !important;
+
+    }
+
+    a:hover,
+    a {
+      color: #000;
+    }
+
+    button,
+    .btn {
+      background-color: #f67b6f;
+      border: none !important;
+      color: #ffffff;
+    }
+
+    button:hover,
+    .btn:hover {
+      background-color: #f67b6f;
+      color: #ffffff;
+      opacity: 0.8;
+    }
+
+    .btn-danger {
+      background-color: red !important;
+    }
+
+    .btn-edit {
+      background-color: rgb(32, 108, 221) !important;
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  {% block content %}
+  {% endblock content %}
+
+  {% include 'footer.html' %}
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load myfilters %}
+
+{% block content %}
+
+<style>
+    .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+</style>
+
+<div class="container">
+    <div class="row ">
+
+        <div class="col-md">
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="container-form-content">
+                <h3 class="h3 text-center">
+                    Editar informações
+                </h3>
+                <small class="col text-dark text-center">
+                    <p>Altere as informações clicando abaixo:</p>
+                </small>
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <div class="field">
+                        <label>
+                            {{form.username.label}}
+                        </label>
+                        {{form.username| addclass:'form-control'}}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="field">
+                                <label>
+                                    {{form.first_name.label}}
+                                </label>
+                                {{form.first_name | addclass:'form-control'}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="field">
+                                <label>
+                                    {{form.last_name.label}}
+                                </label>
+                                {{form.last_name| addclass:'form-control'}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>
+                            {{form.email.label}}
+                        </label>
+                        {{form.email| addclass:'form-control'}}
+                    </div>
+                    
+                    <div class="field">
+                        <label>
+                            Alterar imagem de perfil
+                        </label>
+                        {{profile_picture_form.avatar}}
+                    </div>
+
+                    <br>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="submit">Enviar</button>
+                    </div>
+                    <div class="row g-2 p-3 text-center">
+                        
+                        <small class="col text-dark">
+                            <a href="{% url 'users:edit-password' %}">
+                                Deseja alterar sua senha? Clique aqui
+                            </a>
+                        </small>
+                    </div>
+                </form>
+
+                {% if form.errors %}
+                <div class="card bg-danger">
+                    <div class="card-body text-white">
+                    <p>
+                        Os seguintes erros foram apresentados: {{form.errors}} {{profile_picture_form.errors}}
+                    </p> 
+                    </div>
+                </div>
+                {% endif %}
+                
+            </div>
+        </div>
+
+        <div class="col-md">
+        </div>
+    </div>
+</div>
+{% endblock %}

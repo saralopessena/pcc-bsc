@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+
+{% block complement %}
+<link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+<link rel="stylesheet" href="{% static 'css/nicepage.css'%}" media="screen">
+
+{% endblock complement %}
+{% block content %}
+
+<style>
+    .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+
+    
+</style>
+
+
+<section class="u-align-center u-clearfix u-palette-2-light-3 u-section-1" id="sec-4613">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-20 u-border-white u-image u-image-circle u-image-1" data-image-width="1600"
+            data-image-height="1600"></div>
+        <div class="u-align-left u-container-style u-group u-radius-47 u-shape-round u-white u-group-1">
+            <div class="u-container-layout u-container-layout-1">
+                <h2 class="u-align-center u-custom-font u-font-montserrat u-text u-text-body-color u-text-1">Cadastro
+                </h2>
+                <div class="u-align-center u-form u-form-1">
+                    <form action="#" method="POST" class="u-clearfix u-form-spacing-50 u-form-vertical u-inner-form"
+                        source="email" name="form-1" style="padding: 5px;">
+                        {% csrf_token %}
+                        <div class="u-form-group u-form-name">
+                            <label for="name-a736" class="u-label">Usuário</label>
+                            {{form.username | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+                            
+                        </div>
+                        <div class="u-form-group u-form-name u-form-partition-factor-2 u-form-group-2">
+                            <label for="name-3d0a" class="u-label">Primeiro nome</label>
+                           
+                                {{form.first_name | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+                            
+                        </div>
+                        <div class="u-form-group u-form-name u-form-partition-factor-2 u-form-group-3">
+                            <label for="name-8eb3" class="u-label">Último nome</label>
+                            {{form.last_name | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+                            
+                        </div>
+                        <div class="u-form-email u-form-group u-form-group-4">
+                            <label for="email-fe3d" class="u-label">Email</label>
+                            {{form.email | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+
+                        </div>
+                        <div class="u-form-email u-form-group u-form-partition-factor-2 u-form-group-5">
+                            <label for="email-2431" class="u-label">Senha</label>
+                            {{form.password1 | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-6">
+                            <label for="text-3462" class="u-label">Confirmar senha</label>
+                            {{form.password2 | addclass:'u-input u-input-rectangle u-palette-1-light-2 u-radius-12'}}
+
+                        </div>
+                        <div class="u-align-center u-form-group u-form-submit">
+                            <button 
+                                class="u-active-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-font-montserrat u-hover-black u-palette-4-base u-radius-50 u-btn-1">Cadastrar<br>
+                            </button>
+                            <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent.
+                        </div>
+                        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix
+                            errors then try again. </div>
+                        <input type="hidden" value="" name="recaptchaResponse">
+                    </form>
+                </div>
+                {% if form.errors %}
+                <div class="card bg-danger">
+                    <div class="card-body text-white">
+                    <p>
+                        Os seguintes erros foram apresentados: {{form.errors}}
+                    </p> 
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="u-clearfix u-group-elements u-group-elements-1">
+                    <h6 class="u-align-center u-custom-font u-font-montserrat u-text u-text-2">Já possui uma conta?</h6>
+                    <h6 class="u-align-center u-custom-font u-font-montserrat u-text u-text-3">
+                        <a href="{% url 'users:login-users' %}">
+
+                            Faça login
+                        </a>
+                    </h6>
+                </div>
+            </div>
+        </div>
+     
+        <h6 class="u-custom-font u-font-montserrat u-text u-text-black u-text-default u-text-4">Murilo Araújo</h6>
+    </div>
+</section>
+
+
+
+
+
+{% endblock content %}

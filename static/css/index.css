@@ -1,0 +1,298 @@
+h1 {
+  text-align: center;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+h2 {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+hr {
+  width: 35%;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+h4 {
+  text-align: center;
+  padding: 2px;
+}
+
+
+
+section .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+section .title img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+section .content {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: baseline !important;
+}
+ 
+.thumb img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  transform: translate(-50%, -50%);
+}
+
+/----SECTION POSTS----/
+
+section.card-posts {
+  margin-bottom: 60px;
+}
+section.card-posts .content {
+  justify-content: space-around;
+}
+
+.card,
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.card {
+  position: relative;
+  width: 300px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+  overflow: hidden;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.card img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  transform: translate(-50%, -50%);
+}
+
+.card .card-body {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.4); /* Black background with 0.5 opacity */
+  color: #f1f1f1 !important; /* Grey text */
+  height: 100%;
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.card .card-body:hover {
+  opacity: 0.8;
+}
+
+/----SECTION MUSIC----/
+
+.card-music .thumb {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  width: 500px;
+  cursor: pointer;
+}
+
+.card-music {
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  section.music div.content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center ;
+  }
+
+  .card-music .thumb img{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 518px) {
+  .card-music .thumb{
+    height: 275px;
+    width: 300px;
+  }
+}
+/----SECTION BOOKS----/
+
+.card-book .thumb {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+  width: 200px;
+}
+
+.card-book {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 600px;
+  width: 350px;
+  margin-top: 40px;
+  background-color: #fab5af;
+  padding: 30px;
+}
+
+.card-book p, .card-book b{ 
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+@media (max-width: 992px) {
+  div.content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-book {
+    width: 100%;
+  }
+}
+
+/----SECTION INFLUENCERS----/
+
+.card-influencers .thumb {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.card-influencers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+  margin-top: 20px;
+}
+
+.card-influencers p{ 
+  margin-top: 15px;
+  font-size: small;
+}
+
+@media (max-width: 992px) {
+  div.content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/----SECTION ABOUT----/
+section.title-section {
+  margin-top: 30px;
+}
+
+section.about h2{
+  margin-bottom: 20px;
+}
+
+section.about .content{
+  align-items: center !important;
+}
+
+.card-about, .about-text {
+  padding: 30px;
+}
+
+.card-about {
+  background-color: #6d8a89 !important;
+  border-radius: 20px;
+  margin: 20px 0px;
+}
+
+@media (max-width: 992px) {
+  section.about .col-md-6{
+    width: 100%;
+  }
+}
+
+/----FOOTER----/
+
+footer {
+  background-color: #000000;
+  padding: 30px 0px;
+}
+
+footer img {
+  width: 100px !important;
+}
+
+footer .row {
+  display: flex;
+  align-items: center;
+}
+
+div.social {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+div.social .brand {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.social .brand:hover {
+  opacity: 0.8;
+}
+
+div.social .brand img{
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 766px) {
+  footer .row {
+    justify-content: center;
+  }
+
+  footer .col-md-9 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  footer .col-md-3 {
+    width: 80%;
+  }
+}

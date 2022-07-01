@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% load myfilters %}
+{% load static %}
+
+
+{% block complement %}
+
+
+<link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+
+
+{% endblock complement %}
+
+{% include 'navbar.html' %}
+{% block content %}
+
+<style>
+     .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 684px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 454px;
+  height: 454px;
+  background-image: url("https://github.com/ORuan/static-hosped/blob/master/ANGELA.jfif?raw=true");
+  background-position: 50% 50%;
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  margin: 147px auto 0 157px;
+}
+
+.u-section-1 .u-group-1 {
+  width: 458px;
+  min-height: 451px;
+  background-image: none;
+  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
+  height: auto;
+  margin: -533px 149px 0 auto;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 23px 22px 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 2.25rem;
+  margin: 20px 16px 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 302px;
+  margin: 10px 64px 0 42px;
+}
+
+.u-section-1 .u-btn-1 {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  background-image: none;
+  border-style: none;
+  padding: 9px 31px 9px 29px;
+}
+
+.u-section-1 .u-text-2 {
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin: 21px 84px 0 170px;
+}
+
+.u-section-1 .u-text-3 {
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin: -13px 0 0 305px;
+}
+
+.u-section-1 .u-text-4 {
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin: -15px 254px 0 1px;
+}
+
+.u-section-1 .u-text-5 {
+  font-weight: 700;
+  margin: 92px auto 52px 303px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1279px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 656px;
+    height: 656px;
+    margin-top: 6px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 544px;
+    margin-top: -854px;
+    height: auto;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: 15px;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-btn-1 {
+    width: 25%;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-top: 25px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: -20px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-top: -12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1531px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 604px;
+    height: 604px;
+    margin-left: 26px;
+  }
+
+  .u-section-1 .u-group-1 {
+    margin-top: -783px;
+  }
+
+  .u-section-1 .u-text-5 {
+    margin-left: 232px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1463px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 462px;
+    height: 462px;
+    margin-top: -26px;
+    margin-left: 86px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 512px;
+    margin-top: -640px;
+    margin-right: 82px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .u-section-1 .u-text-1 {
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .u-section-1 .u-text-5 {
+    margin-left: 174px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1273px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 302px;
+    height: 302px;
+    margin-top: -83px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-group-1 {
+    margin-top: -689px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 1.875rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 77px;
+    margin-left: 111px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-top: -38px;
+    margin-left: 187px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 137px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-5 {
+    margin-left: 110px;
+  }
+}
+</style>
+
+<body class="u-body u-xl-mode">
+
+    <section class="u-align-center u-clearfix u-palette-2-light-3 u-section-1" id="sec-4613">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-border-20 u-border-white u-image u-image-circle u-image-1" data-image-width="750"
+                data-image-height="936"></div>
+            <div
+                class="u-align-left u-container-style u-expanded-width-xs u-group u-radius-47 u-shape-round u-white u-group-1">
+                <div class="u-container-layout u-container-layout-1">
+                    <h2 class="u-align-center u-custom-font u-font-montserrat u-text u-text-body-color u-text-1">LOGIN
+                    </h2>
+                    <div
+                        class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
+                        <form action="#" method="POST" class="u-clearfix u-form-spacing-37 u-form-vertical u-inner-form"
+                        source="email" name="form-1" style="padding: 12px;">
+                        {% csrf_token %}
+                            <div class="u-form-group u-form-name">
+                                <label for="name-a736" class="u-label">Usuário</label>
+
+                                <input type="text" placeholder="Insira seu nome de usuário" id="name-a736" name="username"
+                                    class="u-input u-input-rectangle u-palette-1-light-2 u-radius-12" required="">
+                            </div>
+                            <div class="u-form-email u-form-group">
+                                <label for="email-a736" class="u-label">Senha</label>
+                                <input type="password" placeholder="Insira sua senha" id="email-a736" name="password"
+                                    class="u-input u-input-rectangle u-palette-1-light-2 u-radius-12" required="">
+                            </div>
+                            <div class="u-form-agree u-form-group u-form-group-3">
+                                <input type="checkbox" id="agree-581d" name="agree" class="u-agree-checkbox"
+                                    >
+                                <label for="agree-581d" class="u-label">Lembrar-me</label>
+                            </div>
+                            <div class="u-align-center u-form-group u-form-submit">
+                                <button href="#"
+                                    class="u-active-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-font-montserrat u-hover-black u-palette-4-base u-radius-50 u-btn-1">Logar<br>
+                                </button>
+                                <input type="submit" value="submit" class="u-form-control-hidden">
+                            </div>
+                            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent.
+                            </div>
+                            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix
+                                errors then try again. </div>
+                            <input type="hidden" value="" name="recaptchaResponse">
+                        </form>
+                    </div>
+
+
+                    <h6 class="u-align-center u-custom-font u-font-montserrat u-text u-text-2">
+                        <a href="{% url 'users:edit-password' %}">
+
+                            Esqueceu sua senha?
+                        </a>
+                        <h6 class="u-align-center u-custom-font u-font-montserrat u-text u-text-default u-text-3">
+
+                            <a href="{% url 'users:create-users' %}">
+                                Ainda não tem conta?
+                            </a>
+                        </h6>
+                        <h6 class="u-align-center u-custom-font u-font-montserrat u-text u-text-4">
+                            <a href="{% url 'users:create-users' %}">
+                                Cadastre-se
+                            </a>
+                        </h6>
+                    </h6>
+                        {% if error %}
+                <div class="card bg-danger">
+                    <div class="card-body text-white">
+                    <p>
+                        Os seguintes erros foram apresentados: 
+                        <ul>
+                            <li>
+                                {{error}}
+                            </li>
+                        </ul>
+                    </p> 
+                    </div>
+                </div>
+                {% endif %}
+                </div>
+            </div>
+            <h6 class="u-custom-font u-font-montserrat u-text u-text-default u-text-white u-text-5">ANGELA DAVIS</h6>
+        </div>
+    </section>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock content %}
+
+    <!--
+
+
+    <style>
+     .container-form-content {
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+    }
+
+    .field {
+        margin-top: 5px;
+    }
+
+</style>
+
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-md">
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="container-form-content">
+                <h3 class="h3 text-center">
+                    Formulário de Login
+                </h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Senha</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        <div id="passwordHelp" class="form-text">Ninguém poderá ver sua senha. </div>
+                    </div>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn" type="submit">Login</button>
+                    </div>
+                    <div class="row g-2 p-3 text-center">
+                        <small class="col text-dark">
+                            <a href="{% url 'users:edit-password' %}">
+                                Esqueceu sua senha?
+                            </a>
+                        </small>
+                        <small class="col text-dark">
+                            <a href="{% url 'users:create-users' %}">
+                                Não tem conta? Faça seu cadastro
+                            </a>
+                        </small>
+                    </div>
+                </form>
+                {% if error %}
+                <div class="card bg-danger">
+                    <div class="card-body text-white">
+                    <p>
+                        Os seguintes erros foram apresentados: 
+                        <ul>
+                            <li>
+                                {{error}}
+                            </li>
+                        </ul>
+                    </p> 
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="col-md">
+        </div>
+    </div>
+</div>
+    
+-->

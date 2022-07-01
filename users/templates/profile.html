@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+    div.row {
+        display: flex;
+        justify-content: center;
+    }
+    
+    div.top {
+        display: flex;
+        background-color: #fff;
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 3rem;
+    }
+
+    div.bottom {
+        display: flex;
+        background-color: #fff;
+        padding: 0% 5% 5% 5%;
+        border-radius: 5px;
+        justify-content: center;
+    }
+
+    div.info {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 30px;
+    }
+
+    .thumb {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    .thumb img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .btn-container {
+        margin-top: 20px;
+    }
+
+    .btn-container span {
+        font-size: 15px;
+    }
+
+    div.bottom img {
+        width: 70px;
+    }
+    @media (max-width: 990px) {
+        div.top {
+            flex-direction: column;
+        }
+        div.col-md-5 {
+            width: 100%;
+            margin-bottom: 10px;
+        } 
+        div.info {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        div.info div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-8 top">
+            <div class="col-md-5">
+                <div class="thumb">
+                    <img src="../../media/{{profile_picture.avatar }}" class="img-profile" alt="Foto de perfil">
+                </div>
+            </div>
+            <div class="col-md-7 info">
+                <div>
+                    <h2>{{user.first_name}} {{user.last_name}}</h2>
+                    <h5>@{{user.username}}</h5>
+                    <h5>{{user.email}}</h5>
+                    <a href="{% url 'users:logout-users' %}">Sair</a>
+                </div>
+
+                <div class="btn-container">
+                    <a href="{% url 'users:edit-users' %}">    
+                        <button class="btn btn-edit">
+                            <span class="material-icons">
+                                edit
+                            </span>
+                            Editar
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 bottom">
+            <img src="{% static 'images/logo-bottom.jpeg' %}">
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
